@@ -11,11 +11,11 @@ import { Outlet } from "react-router-dom";
 
 import stylesUrl from "./styles/global.css";
 
-export let links: LinksFunction = () => {
+export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: stylesUrl }];
 };
 
-export let loader: LoaderFunction = async () => {
+export const loader: LoaderFunction = async () => {
   return { date: new Date() };
 };
 
@@ -45,7 +45,7 @@ function Document({
 }
 
 export default function App() {
-  let data = useLoaderData();
+  const data = useLoaderData();
 
   return (
     <Document>
@@ -58,7 +58,7 @@ export default function App() {
 }
 
 export function CatchBoundary() {
-  let caught = useCatch();
+  const caught = useCatch();
 
   switch (caught.status) {
     case 401:
@@ -79,6 +79,7 @@ export function CatchBoundary() {
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
+  // eslint-disable-next-line no-console
   console.error(error);
 
   return (
