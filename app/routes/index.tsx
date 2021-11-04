@@ -1,3 +1,4 @@
+import * as React from 'react'
 import type { MetaFunction, LinksFunction, LoaderFunction } from "remix";
 import { useLoaderData } from "remix";
 import { Link } from "react-router-dom";
@@ -21,6 +22,7 @@ export let loader: LoaderFunction = async () => {
 
 export default function Index() {
   let data = useLoaderData();
+  const [count, setCount] = React.useState(0)
 
   return (
     <div style={{ textAlign: "center", padding: 20 }}>
@@ -29,6 +31,7 @@ export default function Index() {
         <a href="https://docs.remix.run">Check out the docs</a> to get started.
       </p>
       <p>Message from the loader: {data.message}</p>
+      <button onClick={() => setCount(prevState => prevState + 1)}>Count : {count}</button>
       <p>
         <Link to="not-found">Link to 404 not found page.</Link> Clicking this
         link will land you in your root CatchBoundary component.
