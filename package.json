@@ -1,13 +1,13 @@
 {
-  "private": true,
   "name": "remix-app-template",
-  "description": "",
-  "license": "",
+  "version": "0.0.1",
+  "description": "Personal website built with Remix.run",
+  "license": "MIT",
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
     "postinstall": "remix setup node",
-    "start": "remix-serve build"
+    "start": "npm run build && remix-serve build"
   },
   "dependencies": {
     "@remix-run/react": "^0.20.1",
