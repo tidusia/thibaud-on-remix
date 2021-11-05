@@ -8,9 +8,13 @@ node_modules
 /.cache
 /build
 /public/build
+tsconfig.tsbuildinfo
 
 # Testing
 /coverage
 
 # Tailwind
 app/styles/tailwind.css
+
+# Storybook
+/storybook-static

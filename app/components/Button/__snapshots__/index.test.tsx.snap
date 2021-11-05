@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Default should be accessible and match snapshot 1`] = `
+<div
+  class="p-4"
+>
+  <button
+    class="font-bold bg-blue-600 text-white px-4 py-2"
+  >
+    Hey !
+  </button>
+</div>
+`;
