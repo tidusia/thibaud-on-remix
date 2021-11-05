@@ -1,9 +1,3 @@
-# Classic
-.vscode/
-.DS_Store
-.idea/
-node_modules
-
 # Remix
 /.cache
 /build

@@ -4,18 +4,18 @@
   "description": "Personal website built with Remix.run",
   "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "build": "remix build",
     "dev": "remix dev",
     "postinstall": "remix setup node",
     "start": "cross-env NODE_ENV=production npm run build && remix-serve build",
-    "prettier": "prettier --ignore-path .gitignore \"**/*.{js,jsx,ts,tsx,json,md,mdx,html,css}\"",
+    "prettier": "prettier \"**/*.{js,jsx,ts,tsx,json,md,mdx,html,css}\"",
     "format": "npm run prettier -- --write",
     "format:check": "npm run prettier -- --check",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:fix": "eslint . --fix --ignore-path .gitignore",
     "validate-typescript": "tsc --noEmit",
-    "pre-commit": "lint-staged",
-    "prepare": "husky install"
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@remix-run/react": "^0.20.1",
@@ -45,7 +45,8 @@
     "husky": "^7.0.0"
   },
   "engines": {
-    "node": "^16"
+    "node": "^16",
+    "npm": "^8"
   },
   "sideEffects": false
 }
