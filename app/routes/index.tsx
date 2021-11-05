@@ -4,6 +4,7 @@ import { useLoaderData } from "remix";
 import { Link } from "react-router-dom";
 
 import stylesUrl from "../styles/index.css";
+import Button from "../components/Button";
 
 export const meta: MetaFunction = () => {
   return {
@@ -31,9 +32,12 @@ export default function Index() {
         <a href="https://docs.remix.run">Check out the docs</a> to get started.
       </p>
       <p>Message from the loader: {data.message}</p>
-      <button onClick={() => setCount((prevState) => prevState + 1)}>
-        Count : {count}
-      </button>
+
+      <Button
+        onClick={() => setCount((prevState) => prevState + 1)}
+        content={`Count : ${count}`}
+      />
+
       <p className="font-bold text-2xl">This text is styled with tailwind !</p>
       <p>
         <Link to="not-found">Link to 404 not found page.</Link> Clicking this
