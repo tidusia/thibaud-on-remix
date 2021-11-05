@@ -34,6 +34,7 @@ export default function Index() {
       <button onClick={() => setCount((prevState) => prevState + 1)}>
         Count : {count}
       </button>
+      <p className="font-bold text-2xl">This text is styled with tailwind !</p>
       <p>
         <Link to="not-found">Link to 404 not found page.</Link> Clicking this
         link will land you in your root CatchBoundary component.

@@ -11,3 +11,6 @@ node_modules
 
 # Testing
 /coverage
+
+# Tailwind
+app/styles/tailwind.css
