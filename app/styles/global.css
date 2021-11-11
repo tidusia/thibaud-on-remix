@@ -63,4 +63,112 @@
       @apply text-lg;
     }
   }
+
+  /* TODO: find a way to scope this in article page but still using tailwind @apply */
+  .article-page {
+    max-width: 680px;
+    @apply text-xl;
+  }
+
+  .article-content * {
+    @apply my-8;
+    @apply leading-relaxed;
+  }
+
+  .article-content a,
+  .article-figcaption a {
+    @apply underline;
+    @apply text-blue-500;
+  }
+
+  .article-main-title,
+  .article-content h1,
+  .article-content h2,
+  .article-content h3,
+  .article-content h4,
+  .article-content h5,
+  .article-content h6 {
+    @apply mt-16;
+    @apply tracking-tight;
+    @apply leading-none;
+    @apply font-extrabold;
+    @apply text-blue-500;
+  }
+
+  .article-main-title::first-line,
+  .article-content h1::first-line,
+  .article-content h2::first-line,
+  .article-content h3::first-line,
+  .article-content h4::first-line,
+  .article-content h5::first-line,
+  .article-content h6::first-line {
+    @apply text-gray-900;
+  }
+
+  .article-main-title {
+    @apply text-4xl;
+  }
+
+  @media (min-width: 640px) {
+    .article-main-title {
+      @apply text-5xl;
+    }
+  }
+
+  .article-content h2 {
+    @apply text-3xl;
+  }
+
+  .article-content h3 {
+    @apply text-2xl;
+  }
+
+  .article-content h4 {
+    @apply text-xl;
+  }
+
+  .article-content h5 {
+    @apply text-lg;
+  }
+
+  .article-content ul {
+    @apply -mt-4;
+    @apply pl-8;
+    @apply list-disc;
+  }
+
+  .article-content ol {
+    @apply -mt-4;
+    @apply pl-8;
+    @apply list-decimal;
+  }
+
+  .article-content li {
+    @apply mt-0;
+    @apply mb-2;
+  }
+
+  .article-content blockquote {
+    @apply pl-4;
+    @apply border-l-8;
+    @apply border-blue-500;
+    @apply text-2xl;
+    @apply text-gray-600;
+    @apply italic;
+  }
+
+  .article-content pre {
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow-x: auto;
+  }
+
+  .article-content code {
+    font-size: 0.8em;
+  }
+
+  .article-content pre code {
+    font-size: 0.6em;
+  }
 }

@@ -1,12 +1,5 @@
 import type { LinksFunction, LoaderFunction } from "remix";
-import {
-  Meta,
-  Links,
-  Scripts,
-  useLoaderData,
-  LiveReload,
-  useCatch,
-} from "remix";
+import { Meta, Links, Scripts, LiveReload, useCatch } from "remix";
 import { Outlet } from "react-router-dom";
 
 import tailwindStylesUrl from "./styles/tailwind.css";
@@ -45,14 +38,9 @@ function Document({
 }
 
 export default function App() {
-  const data = useLoaderData();
-
   return (
     <Document>
       <Outlet />
-      <footer>
-        <p>This page was rendered at {data.date.toLocaleString()}</p>
-      </footer>
     </Document>
   );
 }
