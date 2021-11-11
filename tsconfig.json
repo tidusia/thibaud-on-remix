@@ -9,6 +9,9 @@
     "target": "ES2019",
     "strict": true,
     "skipLibCheck": true,
+    "paths": {
+      "~/*": ["./app/*"]
+    },
     // Remix takes care of building everything in `remix build`.
     "noEmit": true
   }
