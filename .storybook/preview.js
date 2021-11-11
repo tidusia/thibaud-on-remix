@@ -1,4 +1,4 @@
-import "tailwindcss/tailwind.css";
+import "../app/styles/global.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

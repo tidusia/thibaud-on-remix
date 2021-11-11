@@ -34,8 +34,11 @@ export default function Index() {
       <p>Message from the loader: {data.message}</p>
 
       <Button
+        className="btn"
         onClick={() => setCount((prevState) => prevState + 1)}
         content={`Count : ${count}`}
+        mode="primary"
+        size="big"
       />
 
       <p className="font-bold text-2xl">This text is styled with tailwind !</p>

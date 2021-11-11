@@ -18,10 +18,8 @@ describe("Button", () => {
     test("should handle click", () => {
       const onClick = jest.fn();
       render(<Default onClick={onClick} />);
-      userEvent.click(screen.getByText("Hey !"));
+      userEvent.click(screen.getByText("Mes références"));
       expect(onClick).toHaveBeenCalledTimes(1);
-      // TMP, just to ensure jest-dom extends correctly, will be removed soon
-      expect(screen.getByText("Hey !")).toHaveTextContent("Hey !");
     });
   });
 });

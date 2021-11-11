@@ -16,8 +16,8 @@
     "lint": "eslint . --ignore-path .gitignore",
     "lint:fix": "eslint . --fix --ignore-path .gitignore",
     "typescript:check": "tsc --noEmit",
-    "tailwind:watch": "npx tailwindcss -o app/styles/tailwind.css --watch",
-    "tailwind:build": "cross-env NODE_ENV=production npx tailwindcss -o app/styles/tailwind.css --minify",
+    "tailwind:watch": "npx tailwindcss -i app/styles/global.css -o app/styles/tailwind.css --watch",
+    "tailwind:build": "cross-env NODE_ENV=production npx tailwindcss -i app/styles/global.css -o app/styles/tailwind.css --minify",
     "pre-commit": "lint-staged && npm run typescript:check && npm run test -- -o",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
@@ -26,6 +26,7 @@
   "dependencies": {
     "@remix-run/react": "^0.20.1",
     "@remix-run/serve": "^0.20.1",
+    "clsx": "^1.1.1",
     "cross-env": "^7.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

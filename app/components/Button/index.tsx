@@ -4,15 +4,27 @@ import clsx from "clsx";
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;
   content?: React.ReactNode;
+  mode?: "primary" | "light";
+  size?: "big";
 };
 
-const Button = ({ className, onClick, content }: ButtonProps): JSX.Element => (
-  <button
-    className={clsx(className, "font-bold bg-blue-600 text-white px-4 py-2")}
-    onClick={onClick}
-  >
-    {content}
-  </button>
-);
+const Button = ({
+  className,
+  onClick,
+  content,
+  mode,
+  size,
+}: ButtonProps): JSX.Element => {
+  return (
+    <button
+      className={clsx(className, "btn")}
+      data-mode={mode}
+      data-size={size}
+      onClick={onClick}
+    >
+      {content}
+    </button>
+  );
+};
 
 export default Button;

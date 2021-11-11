@@ -10,13 +10,9 @@ import {
 import { Outlet } from "react-router-dom";
 
 import tailwindStylesUrl from "./styles/tailwind.css";
-import stylesUrl from "./styles/global.css";
 
 export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: tailwindStylesUrl },
-    { rel: "stylesheet", href: stylesUrl },
-  ];
+  return [{ rel: "stylesheet", href: tailwindStylesUrl }];
 };
 
 export const loader: LoaderFunction = async () => {
