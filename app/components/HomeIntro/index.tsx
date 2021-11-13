@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "remix";
 import Nav from "../Nav";
 import ROUTES from "../../data/routes";
 
@@ -43,6 +43,7 @@ const HomeIntro = () => (
               </div>
               <div className="mt-3 sm:mt-0 sm:ml-3">
                 <Link
+                  prefetch="intent"
                   to={ROUTES.contact.href}
                   className="w-full btn"
                   data-mode="light"

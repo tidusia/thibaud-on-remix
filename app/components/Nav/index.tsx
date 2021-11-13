@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "remix";
 import ROUTES from "../../data/routes";
 import { useLocation } from "react-router-dom";
 
@@ -19,6 +19,7 @@ const Nav = () => {
           <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
             <div className="flex items-center justify-between w-full md:w-auto">
               <Link
+                prefetch="intent"
                 to={ROUTES.home.href}
                 className="text-2xl tracking-tight leading-10 font-extrabold"
               >
@@ -51,6 +52,7 @@ const Nav = () => {
           <div className="hidden md:block pl-6">
             {navLinks.map((link) => (
               <Link
+                prefetch="intent"
                 key={link.href}
                 to={link.href}
                 className={`mx-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out ${
@@ -71,6 +73,7 @@ const Nav = () => {
           <div className="p-2 bg-gray-900 shadow-xs overflow-hidden">
             <div className="pl-2 pr-4 pt-4 flex items-center justify-between">
               <Link
+                prefetch="intent"
                 to={ROUTES.home.href}
                 className="text-2xl tracking-tight leading-10 font-extrabold text-white"
               >
@@ -101,6 +104,7 @@ const Nav = () => {
             <div className="px-2 pt-2 pb-3">
               {navLinks.map((link) => (
                 <Link
+                  prefetch="intent"
                   key={link.href}
                   to={link.href}
                   className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-400 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"

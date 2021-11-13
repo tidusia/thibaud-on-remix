@@ -38,6 +38,7 @@ const FeaturedPosts = ({
         {!hideLinks && (
           <div className="mt-16 sm:flex sm:justify-center">
             <Link
+              prefetch="intent"
               to={ROUTES.blog.href}
               className="btn flex"
               data-size="big"

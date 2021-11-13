@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "remix";
 
 export type Props = {
   href: string;
@@ -32,7 +32,7 @@ const Post = ({
     )}
     <div className="flex-1 bg-white p-6 flex flex-col justify-between">
       <div className="flex-1">
-        <Link to={href} className="block">
+        <Link prefetch="intent" to={href} className="block">
           <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
             {title}
           </h3>

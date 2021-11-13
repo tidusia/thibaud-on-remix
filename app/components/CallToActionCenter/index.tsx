@@ -1,6 +1,6 @@
 import React from "react";
 import { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "remix";
 import ROUTES from "../../data/routes";
 
 type Props = {
@@ -20,6 +20,7 @@ const CallToActionCenter: FunctionComponent<Props> = ({ title, dark }) => (
       </h2>
       <div className="mt-8 sm:flex sm:justify-center">
         <Link
+          prefetch="intent"
           to={ROUTES.contact.href}
           className="btn flex"
           data-mode="primary"
