@@ -4,6 +4,7 @@ import { Meta, Links, Scripts, LiveReload, useCatch } from "remix";
 import { Outlet } from "react-router-dom";
 
 import tailwindStylesUrl from "./styles/tailwind.css";
+import useScrollToTop from "./hooks/useScrollToTop";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesUrl }];
@@ -20,6 +21,7 @@ function Document({
   children: React.ReactNode;
   title?: string;
 }) {
+  useScrollToTop();
   return (
     <html lang="en">
       <head>
