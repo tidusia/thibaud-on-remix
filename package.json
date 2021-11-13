@@ -27,6 +27,7 @@
     "@remix-run/react": "^0.20.1",
     "@remix-run/serve": "^0.20.1",
     "@storybook/addon-a11y": "^6.3.12",
+    "@tailwindcss/forms": "^0.3.4",
     "clsx": "^1.1.1",
     "cross-env": "^7.0.3",
     "react": "^17.0.2",
