@@ -24,6 +24,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@mapbox/rehype-prism": "^0.8.0",
     "@remix-run/react": "^0.20.1",
     "@remix-run/serve": "^0.20.1",
     "@storybook/addon-a11y": "^6.3.12",

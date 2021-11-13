@@ -1,9 +1,14 @@
 import React from "react";
-import { Outlet } from "remix";
-import { useLocation } from "react-router";
+import { LinksFunction, Outlet } from "remix";
+import { useLocation } from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import ArticleFooter from "../components/ArticleFooter";
+import prismStylesUrl from "../styles/prism.css";
+
+export const links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: prismStylesUrl }];
+};
 
 export default function Blog() {
   const location = useLocation();

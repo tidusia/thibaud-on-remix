@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ROUTES from "../../data/routes";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 
 const menuOpenClassName = "absolute top-0 inset-x-0 md:hidden z-40";
 const menuCloseClassName = "hidden";
