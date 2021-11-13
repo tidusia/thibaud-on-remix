@@ -23,7 +23,7 @@ function Document({
 }) {
   useScrollToTop();
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.png" type="image/png" />
