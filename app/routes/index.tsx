@@ -1,10 +1,21 @@
 import * as React from "react";
-import type { MetaFunction, LoaderFunction } from "remix";
-import { useLoaderData } from "remix";
-import { Link } from "react-router-dom";
+import type { MetaFunction } from "remix";
+import HomeIntro from "../components/HomeIntro";
+import ShowCase from "../components/ShowCase";
+import Testimonial from "../components/Testimonial";
+import Stats from "../components/Stats";
+import projects from "../data/projects";
+import hoursWorking, { yearsWorking } from "../data/hours-working";
+import Projects from "../components/Projects";
+import CallToActionCenter from "../components/CallToActionCenter";
+import ARTICLES from "../data/articles";
+import FeaturedPosts from "../components/FeaturedPosts";
+import Footer from "../components/Footer";
 
-import Button from "../components/Button";
-import Nav from "../components/Nav";
+const totalNbOfProjects = projects.reduce(
+  (total, project) => total + project.nbOfClients,
+  0,
+);
 
 export const meta: MetaFunction = () => {
   const title = "Thibaud Duthoit | Développeur React Freelance";
@@ -21,37 +32,68 @@ export const meta: MetaFunction = () => {
   };
 };
 
-export const loader: LoaderFunction = async () => {
-  return { message: "this is awesome 😎" };
-};
-
 export default function Index() {
-  const data = useLoaderData();
-  const [count, setCount] = React.useState(0);
-
   return (
-    <div style={{ textAlign: "center", padding: 20 }}>
-      <Nav />
+    <div>
+      <HomeIntro />
 
-      <h2>Welcome to Remix!</h2>
-      <p>
-        <a href="https://docs.remix.run">Check out the docs</a> to get started.
-      </p>
-      <p>Message from the loader: {data.message}</p>
+      <main>
+        <ShowCase />
 
-      <Button
-        className="btn"
-        onClick={() => setCount((prevState) => prevState + 1)}
-        content={`Count : ${count}`}
-        mode="primary"
-        size="big"
-      />
+        <Testimonial
+          picture="/images/jerome-velociter.jpg"
+          name="Jérôme Vélociter"
+          position="Lead-Dev, Agricool"
+          content="Thibaud est un excellent intégrateur et développeur React, qui fait des choix pragmatiques et les communique clairement. Ce fut un plaisir de travailler avec lui sur la nouvelle version de notre site (Next.js + Prismic.io). Si l'occasion se présente, nous solliciterons ses services à nouveau dans le futur les yeux fermés."
+        />
 
-      <p className="font-bold text-2xl">This text is styled with tailwind !</p>
-      <p>
-        <Link to="not-found">Link to 404 not found page.</Link> Clicking this
-        link will land you in your root CatchBoundary component.
-      </p>
+        <Testimonial
+          picture="/images/pierre-ragois.jpg"
+          name="Pierre Ragois"
+          position="Designer Freelance, il a réalisé les maquettes pour Agricool"
+          content="En 20 ans de création numérique (déjà!), le nombre de devs front en qui j'ai une totale confiance sur l'intégration d'un design se comptent sur les doigts d'une seule main. Thibaud fait partie de ce club très restreint, et ça en dit long sur ses compétences humaines et professionnelles. Je le recommande donc vivement, en espérant avoir plus de projets avec lui à l'avenir !"
+          reverse
+        />
+
+        <Stats
+          title={`Mon crédo :${"\n"} Améliorer constamment mes compétences`}
+          subtitle="Via la formation en continu, la création de checklists et l'utilisation d'outils de mesure de la qualité, je fais en sorte d'apporter toujours plus de valeur à mon travail."
+          stats={[
+            {
+              value: `${totalNbOfProjects}`,
+              label: "Projets clients",
+            },
+            { value: `${yearsWorking} ans`, label: "expérience freelance" },
+            { value: `${hoursWorking}h`, label: "sur projets clients" },
+          ]}
+        />
+
+        <Projects
+          id="references"
+          heading="Références"
+          title="Développements Front-End"
+          subtitle="Quelques startups et agences avec qui j'ai collaboré"
+          projects={projects}
+        />
+
+        <CallToActionCenter title="On travaille ensemble ?" />
+
+        <FeaturedPosts
+          title="Un peu de lecture ?"
+          subtitle="Simple et naturel, c'est ma façon de m'exprimer ici. C'est un des rares espaces où je règne en maître après tout !"
+          posts={ARTICLES.slice(0, 3).map((article) => ({
+            href: article.href,
+            title: article.attributes.title,
+            picture: article.attributes.picture?.url,
+            pictureAlt: article.attributes.picture?.alt,
+            date: article.attributes.date,
+            timeReading: article.attributes.timeReading,
+            excerpt: article.attributes.excerpt,
+          }))}
+        />
+      </main>
+
+      <Footer />
     </div>
   );
 }
