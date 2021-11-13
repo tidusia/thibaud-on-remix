@@ -6,18 +6,17 @@ export type ArticleTitleProps = ArticleFrontMatter & {
 };
 
 const ArticleHeader = ({
+  meta,
   className,
-  title,
-  excerpt,
   date,
   timeReading,
   picture,
 }: ArticleTitleProps): JSX.Element => (
   <div className={className}>
     <h1 className="article-main-title mt-0 mb-12 sm:my-12 break-words">
-      {title}
+      {meta.title}
     </h1>
-    <h2 className="mb-4 text-gray-600">{excerpt}</h2>
+    <h2 className="mb-4 text-gray-600">{meta.description}</h2>
     <p className="mb-16 sm:text-right text-base leading-5 text-gray-500">
       <time dateTime={date} className="my-0">
         {new Date(date).toLocaleDateString("fr-FR", {

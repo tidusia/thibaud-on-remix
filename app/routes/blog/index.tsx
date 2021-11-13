@@ -31,12 +31,12 @@ export default function BlogIndex() {
         subtitle="En vrac, des articles techniques sur mes sujets favoris du moment, sur le freelancing, ou bien tout autre sujet assez fun pour me justifier d'y passer du temps à l'écrire."
         posts={articles.map((article) => ({
           href: article.href,
-          title: article.attributes.title,
+          title: article.attributes.meta.title,
           picture: article.attributes.picture?.url,
           pictureAlt: article.attributes.picture?.alt,
           date: article.attributes.date,
           timeReading: article.attributes.timeReading,
-          excerpt: article.attributes.excerpt,
+          excerpt: article.attributes.meta.description,
         }))}
         hideLinks
       />

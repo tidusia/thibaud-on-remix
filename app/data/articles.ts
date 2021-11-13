@@ -9,8 +9,10 @@ import * as article8 from "../routes/blog/un-bon-developpeur.mdx";
 import ROUTES from "./routes";
 
 export type ArticleFrontMatter = {
-  title: string;
-  excerpt: string;
+  meta: {
+    title: string;
+    description: string;
+  };
   date: string;
   timeReading: string;
   picture?: {

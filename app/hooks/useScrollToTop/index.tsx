@@ -6,6 +6,7 @@ export default function useScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    if (process.env.NODE_ENV === "development") return;
     window.scrollTo(0, 0);
   }, [pathname]);
 

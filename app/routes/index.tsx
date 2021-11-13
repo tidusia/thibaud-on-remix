@@ -83,12 +83,12 @@ export default function Index() {
           subtitle="Simple et naturel, c'est ma façon de m'exprimer ici. C'est un des rares espaces où je règne en maître après tout !"
           posts={ARTICLES.slice(0, 3).map((article) => ({
             href: article.href,
-            title: article.attributes.title,
+            title: article.attributes.meta.title,
             picture: article.attributes.picture?.url,
             pictureAlt: article.attributes.picture?.alt,
             date: article.attributes.date,
             timeReading: article.attributes.timeReading,
-            excerpt: article.attributes.excerpt,
+            excerpt: article.attributes.meta.description,
           }))}
         />
       </main>
