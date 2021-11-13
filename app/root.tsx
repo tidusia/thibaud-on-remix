@@ -1,6 +1,6 @@
 import React from "react";
 import type { LinksFunction, LoaderFunction } from "remix";
-import { Meta, Links, LiveReload, useCatch } from "remix";
+import { Meta, Links, Scripts, LiveReload, useCatch } from "remix";
 import { Outlet } from "react-router-dom";
 
 import tailwindStylesUrl from "./styles/tailwind.css";
@@ -31,6 +31,7 @@ function Document({
       </head>
       <body>
         {children}
+        <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
