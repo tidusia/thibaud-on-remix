@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { yearsWorking } from "../../data/hours-working";
+import ROUTES from "../../data/routes";
 
 export type ArticleFooterProps = {
   className?: string;
@@ -66,7 +67,10 @@ const ArticleFooter = ({ className }: ArticleFooterProps): JSX.Element => (
             </p>
             <p className="mt-4">
               Si vous cherchez un développeur passionné, je serais ravi de{" "}
-              <Link to="/contact" className="text-blue-500 underline">
+              <Link
+                to={ROUTES.contact.href}
+                className="text-blue-500 underline"
+              >
                 prendre&nbsp;contact
               </Link>{" "}
               avec vous.

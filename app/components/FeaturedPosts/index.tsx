@@ -1,6 +1,7 @@
 import React from "react";
 import Post, { Props as PostType } from "../Post";
 import { Link } from "react-router-dom";
+import ROUTES from "../../data/routes";
 
 type Props = {
   title: string;
@@ -37,7 +38,7 @@ const FeaturedPosts = ({
         {!hideLinks && (
           <div className="mt-16 sm:flex sm:justify-center">
             <Link
-              to="/blog"
+              to={ROUTES.blog.href}
               className="btn flex"
               data-size="big"
               data-mode="primary"

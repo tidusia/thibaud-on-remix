@@ -19,7 +19,7 @@ const Nav = () => {
           <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
             <div className="flex items-center justify-between w-full md:w-auto">
               <Link
-                to="/"
+                to={ROUTES.home.href}
                 className="text-2xl tracking-tight leading-10 font-extrabold"
               >
                 Thibaud Duthoit
@@ -71,7 +71,7 @@ const Nav = () => {
           <div className="p-2 bg-gray-900 shadow-xs overflow-hidden">
             <div className="pl-2 pr-4 pt-4 flex items-center justify-between">
               <Link
-                to="/"
+                to={ROUTES.home.href}
                 className="text-2xl tracking-tight leading-10 font-extrabold text-white"
               >
                 Thibaud Duthoit
