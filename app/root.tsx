@@ -1,11 +1,26 @@
 import React from "react";
 import type { LinksFunction, LoaderFunction } from "remix";
-import { Meta, Links, Scripts, LiveReload, useCatch } from "remix";
+import {
+  Meta,
+  Links,
+  Scripts,
+  LiveReload,
+  useCatch,
+  ScrollRestoration,
+  useLocation,
+} from "remix";
 import { Outlet } from "react-router-dom";
 
-import tailwindStylesUrl from "./styles/tailwind.css";
-import useScrollToTop from "./hooks/useScrollToTop";
+import tailwindStylesUrl from "~/styles/tailwind.css";
 
+/**
+ * The `links` export is a function that returns an array of objects that map to
+ * the attributes for an HTML `<link>` element. These will load `<link>` tags on
+ * every route in the app, but individual routes can include their own links
+ * that are automatically unloaded when a user navigates away from the route.
+ *
+ * https://remix.run/api/app#links
+ */
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesUrl }];
 };
@@ -21,23 +36,21 @@ function Document({
   children: React.ReactNode;
   title?: string;
 }) {
-  useScrollToTop();
   return (
     <html lang="fr">
       <head>
         <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="icon" href="/favicon.png" type="image/png" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, viewport-fit=cover"
-        />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        {title ? <title>{title}</title> : null}
+        {title && <title>{title}</title>}
         <Meta />
         <Links />
       </head>
       <body>
         {children}
+        <RouteChangeAnnouncement />
+        <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
@@ -45,6 +58,11 @@ function Document({
   );
 }
 
+/**
+ * The root module's default export is a component that renders the current
+ * route via the `<Outlet />` component. Think of this as the global layout
+ * component for your app.
+ */
 export default function App() {
   return (
     <Document>
@@ -56,36 +74,107 @@ export default function App() {
 export function CatchBoundary() {
   const caught = useCatch();
 
+  let message;
   switch (caught.status) {
     case 401:
-    case 404:
-      return (
-        <Document title={`${caught.status} ${caught.statusText}`}>
-          <h1>
-            {caught.status} {caught.statusText}
-          </h1>
-        </Document>
+      message = (
+        <p>
+          Oops! Looks like you tried to visit a page that you do not have access
+          to.
+        </p>
       );
+      break;
+    case 404:
+      message = (
+        <p>Oops! Looks like you tried to visit a page that does not exist.</p>
+      );
+      break;
 
     default:
-      throw new Error(
-        `Unexpected caught response with status: ${caught.status}`,
-      );
+      throw new Error(caught.data || caught.statusText);
   }
+
+  return (
+    <Document title={`${caught.status} ${caught.statusText}`}>
+      <h1>
+        {caught.status}: {caught.statusText}
+      </h1>
+      {message}
+    </Document>
+  );
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
   // eslint-disable-next-line no-console
   console.error(error);
-
   return (
-    <Document title="Uh-oh!">
-      <h1>App Error</h1>
-      <pre>{error.message}</pre>
-      <p>
-        Replace this UI with what you want users to see when your app throws
-        uncaught errors.
-      </p>
+    <Document title="Error!">
+      <div>
+        <h1>There was an error</h1>
+        <p>{error.message}</p>
+        <hr />
+        <p>
+          Hey, developer, you should replace this with what you want your users
+          to see.
+        </p>
+      </div>
     </Document>
   );
 }
+
+/**
+ * Provides an alert for screen reader users when the route changes.
+ */
+const RouteChangeAnnouncement = React.memo(() => {
+  const [hydrated, setHydrated] = React.useState(false);
+  const [innerHtml, setInnerHtml] = React.useState("");
+  const location = useLocation();
+
+  React.useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  const firstRenderRef = React.useRef(true);
+  React.useEffect(() => {
+    // Skip the first render because we don't want an announcement on the
+    // initial page load.
+    if (firstRenderRef.current) {
+      firstRenderRef.current = false;
+      return;
+    }
+
+    const pageTitle = location.pathname === "/" ? "Home page" : document.title;
+    setInnerHtml(`Navigated to ${pageTitle}`);
+  }, [location.pathname]);
+
+  // Render nothing on the server. The live region provides no value unless
+  // scripts are loaded and the browser takes over normal routing.
+  if (!hydrated) {
+    return null;
+  }
+
+  return (
+    <div
+      aria-live="assertive"
+      aria-atomic
+      id="route-change-region"
+      style={{
+        border: "0",
+        clipPath: "inset(100%)",
+        clip: "rect(0 0 0 0)",
+        height: "1px",
+        margin: "-1px",
+        overflow: "hidden",
+        padding: "0",
+        position: "absolute",
+        width: "1px",
+        whiteSpace: "nowrap",
+        wordWrap: "normal",
+      }}
+    >
+      {innerHtml}
+    </div>
+  );
+});
+
+RouteChangeAnnouncement.displayName = "RouteChangeAnnouncement";

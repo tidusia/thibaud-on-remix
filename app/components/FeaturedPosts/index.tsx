@@ -1,6 +1,6 @@
 import React from "react";
 import Post, { Props as PostType } from "../Post";
-import { Link } from "react-router-dom";
+import { Link } from "remix";
 import ROUTES from "../../data/routes";
 
 type Props = {
