@@ -11,7 +11,9 @@ import {
 } from "remix";
 import { Outlet } from "react-router-dom";
 
-import tailwindStylesUrl from "~/styles/tailwind.css";
+import tailwindStylesUrl from "~/styles/generated/tailwind.css";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 /**
  * The `links` export is a function that returns an array of objects that map to
@@ -78,15 +80,12 @@ export function CatchBoundary() {
   switch (caught.status) {
     case 401:
       message = (
-        <p>
-          Oops! Looks like you tried to visit a page that you do not have access
-          to.
-        </p>
+        <p>Oups ! Il semblerait que vous n'ayez pas accès à cette page.</p>
       );
       break;
     case 404:
       message = (
-        <p>Oops! Looks like you tried to visit a page that does not exist.</p>
+        <p>Oops! Il semblerait que cette page n'existe pas... ou plus !</p>
       );
       break;
 
@@ -96,10 +95,16 @@ export function CatchBoundary() {
 
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
-      <h1>
-        {caught.status}: {caught.statusText}
-      </h1>
-      {message}
+      <Nav />
+      <div className="flex justify-center my-24 h-full">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold">
+            {caught.status}: {caught.statusText}
+          </h1>
+          <p className="my-8 text-lg">{message}</p>
+        </div>
+      </div>
+      <Footer />
     </Document>
   );
 }

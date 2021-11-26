@@ -14,7 +14,7 @@ tsconfig.tsbuildinfo
 /coverage
 
 # Tailwind
-app/styles/tailwind.css
+app/styles/generated/tailwind.css
 
 # Storybook
 /storybook-static
