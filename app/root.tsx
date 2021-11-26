@@ -95,16 +95,20 @@ export function CatchBoundary() {
 
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
-      <Nav />
-      <div className="flex justify-center my-24 h-full">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold">
-            {caught.status}: {caught.statusText}
-          </h1>
-          <p className="my-8 text-lg">{message}</p>
+      <div className="h-full flex flex-col">
+        <header className="max-w-screen-xl mx-auto mb-6 w-full">
+          <Nav />
+        </header>
+        <div className="flex justify-center items-center flex-grow p-4">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold">
+              {caught.status}: {caught.statusText}
+            </h1>
+            <p className="mt-8 text-lg">{message}</p>
+          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </Document>
   );
 }
