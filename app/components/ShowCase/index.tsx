@@ -1,7 +1,7 @@
 import React from "react";
 import DotsGrid from "../DotsGrid";
 import LogoReact from "../LogoReact";
-import { yearsWorking } from "../../data/hours-working";
+import { yearsWorking } from "~/data/hours-working";
 import projects from "../../data/projects";
 
 const ShowCase = () => (
@@ -10,9 +10,9 @@ const ShowCase = () => (
       <DotsGrid rootClassNames="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4" />
 
       <div className="relative">
-        <h3 className="lg:text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+        <h2 className="lg:text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
           Vous cherchez un développeur de confiance ?
-        </h3>
+        </h2>
         <p className="mt-4 max-w-2xl mx-auto lg:text-center text-xl leading-7 text-gray-500">
           Passionné par le développement web, je suis disponible pour vous
           accompagner sur tout le front-end de votre projet : intégration,
@@ -22,7 +22,7 @@ const ShowCase = () => (
 
       <div className="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
         <div className="relative">
-          <h4 className="text-2xl leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">
+          <h3 className="text-2xl leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">
             En {yearsWorking} ans, j'ai accompagné plus
             <span className="block font-bold text-blue-500">
               de{" "}
@@ -33,7 +33,7 @@ const ShowCase = () => (
               )}{" "}
               projets startups
             </span>
-          </h4>
+          </h3>
           <p className="mt-3 text-lg leading-7 text-gray-500">
             Ma plus-value, c'est ma passion pour le code de qualité, sans bugs
             et bien testé. Avec moi, vous aurez l'assurance d'un produit de
@@ -50,9 +50,9 @@ const ShowCase = () => (
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h5 className="text-lg leading-6 font-medium text-gray-900">
+                  <h4 className="text-lg leading-6 font-medium text-gray-900">
                     Spécialisé en React.js
-                  </h5>
+                  </h4>
                   <p className="mt-2 text-base leading-6 text-gray-500">
                     J'ai eu la chance de travailler sur plus d'une dizaine de
                     projets en React.js ou React Native. Aujourd'hui, je préfère
@@ -81,9 +81,9 @@ const ShowCase = () => (
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h5 className="text-lg leading-6 font-medium text-gray-900">
+                  <h4 className="text-lg leading-6 font-medium text-gray-900">
                     Intégration au pixel perfect
-                  </h5>
+                  </h4>
                   <p className="mt-2 text-base leading-6 text-gray-500">
                     Généralement, les designers aiment travailler avec moi. Je
                     suis capable de comprendre les enjeux derrière leurs
@@ -110,9 +110,9 @@ const ShowCase = () => (
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h5 className="text-lg leading-6 font-medium text-gray-900">
+                  <h4 className="text-lg leading-6 font-medium text-gray-900">
                     Collaboration au sein d'une équipe
-                  </h5>
+                  </h4>
                   <p className="mt-2 text-base leading-6 text-gray-500">
                     Vous avez surement besoin de quelqu'un capable d'intégrer
                     une équipe déjà en place. Ça tombe bien, c'est ce qui me
@@ -143,12 +143,12 @@ const ShowCase = () => (
       <div className="relative mt-12 sm:mt-16 lg:mt-24">
         <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
           <div className="lg:col-start-2">
-            <h4 className="text-2xl leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">
+            <h3 className="text-2xl leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">
               Un de mes derniers projets :
-              <span className="block font-bold text-green-400">
+              <span className="block font-bold text-green-700">
                 la start-up Agricool
               </span>
-            </h4>
+            </h3>
             <p className="mt-3 text-lg leading-7 text-gray-500">
               Agricool avait besoin d'un bon dev front à l'aise avec Next.js
               (framework React), TypeScript pour se brancher sur le headless CMS
@@ -175,9 +175,9 @@ const ShowCase = () => (
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h5 className="text-lg leading-6 font-medium text-gray-900">
+                    <h4 className="text-lg leading-6 font-medium text-gray-900">
                       Intégration des vues
-                    </h5>
+                    </h4>
                     <p className="mt-2 text-base leading-6 text-gray-500">
                       En quelques jours, j'ai intégré les 9 vues sur le Figma au
                       pixel perfect qui ont ensuite été validées par le
@@ -207,9 +207,9 @@ const ShowCase = () => (
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h5 className="text-lg leading-6 font-medium text-gray-900">
+                    <h4 className="text-lg leading-6 font-medium text-gray-900">
                       Branchement CMS Prismic
-                    </h5>
+                    </h4>
                     <p className="mt-2 text-base leading-6 text-gray-500">
                       En collaboration avec le lead-dev d'Agricool, j'ai créer
                       les différents types de pages dans Prismic, généré des
@@ -237,9 +237,9 @@ const ShowCase = () => (
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h5 className="text-lg leading-6 font-medium text-gray-900">
+                    <h4 className="text-lg leading-6 font-medium text-gray-900">
                       Éco-conception
-                    </h5>
+                    </h4>
                     <p className="mt-2 text-base leading-6 text-gray-500">
                       Un des enjeux de la mission était de réaliser un site
                       performant, accessible, avec un excellent score sur

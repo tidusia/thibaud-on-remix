@@ -20,7 +20,7 @@ const Project = ({
       {labels.map((label) => (
         <span
           key={label}
-          className="inline-block my-1 mr-1 px-4 py-1 rounded-full text-sm leading-5 font-semibold tracking-wide bg-blue-100 text-blue-600"
+          className="inline-block my-1 mr-1 px-4 py-1 rounded-full text-sm leading-5 font-semibold tracking-wide bg-blue-50 text-blue-600"
         >
           {label}
         </span>

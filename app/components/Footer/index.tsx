@@ -10,7 +10,7 @@ const Footer: FunctionComponent<Props> = () => (
           href="https://www.linkedin.com/in/thibaudduthoit/"
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-3 text-gray-400 hover:text-gray-500"
+          className="mx-3 text-gray-500 hover:text-gray-500"
         >
           <span className="sr-only">GitHub</span>
           <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -21,7 +21,7 @@ const Footer: FunctionComponent<Props> = () => (
           href="https://github.com/tidusia"
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-3 text-gray-400 hover:text-gray-500"
+          className="mx-3 text-gray-500 hover:text-gray-500"
         >
           <span className="sr-only">GitHub</span>
           <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -36,7 +36,7 @@ const Footer: FunctionComponent<Props> = () => (
           href="https://twitter.com/thibaud_duthoit"
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-3 text-gray-400 hover:text-gray-500"
+          className="mx-3 text-gray-500 hover:text-gray-500"
         >
           <span className="sr-only">Twitter</span>
           <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -45,7 +45,7 @@ const Footer: FunctionComponent<Props> = () => (
         </a>
       </div>
       <div className="mt-8 md:mt-0 md:order-1">
-        <p className="text-center text-base leading-6 text-gray-400">
+        <p className="text-center text-base leading-6 text-gray-500">
           &copy; {new Date().getFullYear()} Thibaud Duthoit
         </p>
       </div>

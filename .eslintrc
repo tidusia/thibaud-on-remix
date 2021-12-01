@@ -3,7 +3,6 @@
     "@tidusia/eslint-config"
   ],
   "rules": {
-    "@typescript-eslint/no-explicit-any": "off",
-    "react/react-in-jsx-scope": "warn"
+    "@typescript-eslint/no-explicit-any": "warn"
   }
 }
