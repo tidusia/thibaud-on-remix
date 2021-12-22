@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 import { composeStories } from "@storybook/testing-react";
 import { render, screen } from "@testing-library/react";
 
-const { Default } = composeStories(stories);
+const { Default, Clicked } = composeStories(stories);
 
 describe("Button", () => {
   describe("Default", () => {
@@ -19,6 +19,15 @@ describe("Button", () => {
       const onClick = jest.fn();
       render(<Default onClick={onClick} />);
       userEvent.click(screen.getByText("Mes références"));
+      expect(onClick).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe("Clicked", () => {
+    test("should handle click", async () => {
+      const onClick = jest.fn();
+      const { container } = render(<Clicked onClick={onClick} />);
+      await Clicked.play({ canvasElement: container });
       expect(onClick).toHaveBeenCalledTimes(1);
     });
   });

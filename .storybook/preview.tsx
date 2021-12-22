@@ -1,3 +1,4 @@
+import React from "react";
 import "../app/styles/global.css";
 
 export const parameters = {
@@ -9,3 +10,12 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (Story: any) => (
+    // Put here future global decorators for stories and tests relying on those stories
+    <>
+      <Story />
+    </>
+  ),
+];

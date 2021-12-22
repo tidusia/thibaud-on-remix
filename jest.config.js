@@ -16,5 +16,12 @@ module.exports = {
     "^.+\\.tsx?$": "esbuild-jest",
     "^.+\\.jsx?$": "esbuild-jest",
   },
+  moduleNameMapper: {
+    // Handle CSS imports
+    "^.+\\.css$": "<rootDir>/__mocks__/styleMock.js",
+    // Handle image imports
+    // https://jestjs.io/docs/webpack#handling-static-assets
+    "^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$": `<rootDir>/__mocks__/fileMock.js`,
+  },
   setupFilesAfterEnv: ["<rootDir>/app/setupTests.ts"],
 };
