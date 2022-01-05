@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 import Button from ".";
 import { userEvent, within } from "@storybook/testing-library";
 import { action } from "@storybook/addon-actions";
@@ -17,29 +17,29 @@ export const Default = {
   },
 };
 
-export const Clicked = {
+export const Clicked: ComponentStoryObj<typeof Button> = {
   args: { ...Default.args },
-  play: async ({ canvasElement }: any) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByText("Mes références"));
   },
 };
 
-export const Primary = {
+export const Primary: ComponentStoryObj<typeof Button> = {
   args: {
     ...Default.args,
     mode: "primary",
   },
 };
 
-export const Light = {
+export const Light: ComponentStoryObj<typeof Button> = {
   args: {
     ...Default.args,
     mode: "light",
   },
 };
 
-export const Big = {
+export const Big: ComponentStoryObj<typeof Button> = {
   args: {
     ...Default.args,
     mode: "primary",

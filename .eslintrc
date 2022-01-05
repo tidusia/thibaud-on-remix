@@ -1,8 +1,7 @@
 {
-  "extends": [
-    "@tidusia/eslint-config"
-  ],
+  "extends": ["@tidusia/eslint-config"],
   "rules": {
-    "@typescript-eslint/no-explicit-any": "warn"
+    "@typescript-eslint/no-explicit-any": "warn",
+    "storybook/no-title-property-in-meta": "off"
   }
 }

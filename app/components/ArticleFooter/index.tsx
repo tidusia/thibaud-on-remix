@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { Link } from "remix";
-import { yearsWorking } from "../../data/hours-working";
+import { yearsWorking } from "~/data/hours-working";
 import ROUTES from "../../data/routes";
 
 export type ArticleFooterProps = {
@@ -12,7 +12,7 @@ const ArticleFooter = ({ className }: ArticleFooterProps): JSX.Element => (
   <section
     className={clsx(
       className,
-      "py-12 bg-gray-50 overflow-hidden md:py-20 lg:py-24"
+      "py-12 bg-gray-50 overflow-hidden md:py-20 lg:py-24",
     )}
   >
     <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
