@@ -5,12 +5,10 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "build": "remix build",
+    "build": "npm run tailwind:build && remix build",
     "dev": "npm-run-all --parallel tailwind:watch dev:remix",
     "dev:remix": "remix dev",
     "postinstall": "remix setup node",
-    "serve": "cross-env PORT=8080 remix-serve build",
-    "start": "npm run tailwind:build && npm run build && npm run serve",
     "prettier": "prettier \"**/*.{js,jsx,ts,tsx,json,md,mdx,html,css}\"",
     "format": "npm run prettier -- --write",
     "format:check": "npm run prettier -- --check",
@@ -29,6 +27,7 @@
     "@mapbox/rehype-prism": "^0.8.0",
     "@remix-run/react": "^1.0.4",
     "@remix-run/serve": "^1.0.4",
+    "@remix-run/vercel": "^1.1.1",
     "@tailwindcss/forms": "^0.3.4",
     "clsx": "^1.1.1",
     "cross-env": "^7.0.3",
@@ -78,6 +77,9 @@
     "prettier": "^2.5.1",
     "tailwindcss": "^2.2.19",
     "typescript": "^4.5.4"
+  },
+  "engines": {
+    "node": ">=14"
   },
   "sideEffects": false
 }

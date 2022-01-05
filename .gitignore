@@ -6,8 +6,9 @@ node_modules
 
 # Remix
 /.cache
-/build
+.output
 /public/build
+api/_build
 tsconfig.tsbuildinfo
 
 # Testing
@@ -18,3 +19,6 @@ app/styles/generated/tailwind.css
 
 # Storybook
 /storybook-static
+
+# Vercel
+.vercel
